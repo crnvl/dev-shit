@@ -12,7 +12,7 @@ SET /A counter = %counter% + 1
 SET /A fizzbuzz = %counter% %% 15
 SET /A fizz = %counter% %% 3
 SET /A buzz = %counter% %% 5
-IF /i %counter% gtr 50 exit
+IF /i %counter% gtr 50 goto break
 IF /i %fizzbuzz% == 0 goto fifteen
 IF /i %fizz% == 0 goto three
 IF /i %buzz% == 0 goto five
@@ -31,3 +31,7 @@ goto FizzBuzz
 :five
 type Buzz.txt
 goto FizzBuzz
+
+:break
+cd .. 
+exit
