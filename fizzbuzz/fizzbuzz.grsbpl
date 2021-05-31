@@ -1,0 +1,19 @@
+1 &i                                # init loop counter
+:start                              # set start label
+@i 100 - not goto finished          # if i is 100, finish
+@i 15 % not goto print_fizz_buzz    # fizzbuzz
+@i 5 % not goto print_buzz          # buzz
+@i 3 % not goto print_fizz          # fizz
+@i nout '\n' out                    # normal number
+:end                                # go back here after printing
+@i 1 + &i                           # increment i
+1 goto start                        # go back to the start
+
+:print_fizz_buzz
+   'F' out 'i' out 'z' out 'z' out 'B' out 'u' out 'z' out 'z' out '\n' out goto end
+:print_fizz
+   'F' out 'i' out 'z' out 'z' out '\n' out goto end
+:print_buzz
+   'B' out 'u' out 'z' out 'z' out '\n' out goto end
+
+:finished 0
